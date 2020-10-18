@@ -38,4 +38,8 @@ public class Author {
         this.lastName = lastName;
     }
 
+    @Override
+    public String toString() {
+        return  firstName + " " + lastName;
+    }
 }

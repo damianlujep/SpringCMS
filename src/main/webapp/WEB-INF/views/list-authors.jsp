@@ -18,7 +18,7 @@
         table, th, td {
             border-collapse: collapse;
             border: 1px solid black;
-            width: auto>;
+            width: auto;
             height: 35px;
             table-layout: fixed;
         }

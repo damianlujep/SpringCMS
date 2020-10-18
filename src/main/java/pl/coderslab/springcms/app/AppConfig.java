@@ -13,6 +13,8 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pl.coderslab.springcms.converter.AuthorConverter;
+import pl.coderslab.springcms.converter.CategoryConverter;
 
 import javax.persistence.EntityManagerFactory;
 
@@ -36,6 +38,12 @@ public class AppConfig implements WebMvcConfigurer {
         configurer.enable();
     }
 
+    @Override
+    public void addFormatters(FormatterRegistry registry){
+        registry.addConverter(authorConverter());
+        registry.addConverter(categoryConverter());
+    }
+
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean entityManagerFactoryBean
@@ -48,6 +56,16 @@ public class AppConfig implements WebMvcConfigurer {
         JpaTransactionManager jpaTransactionManager =
                 new JpaTransactionManager(entityManagerFactory);
         return jpaTransactionManager;
+    }
+
+    @Bean
+    public Converter authorConverter(){
+        return new AuthorConverter();
+    }
+
+    @Bean
+    public Converter categoryConverter(){
+        return new CategoryConverter();
     }
 
 }
