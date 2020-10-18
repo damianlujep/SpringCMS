@@ -80,4 +80,25 @@ public class Article {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public LocalDateTime getUpdated() {
+        return updated;
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+//                ", author=" + author +
+//                ", categories=" + categories +
+                ", content='" + content + '\'' +
+//                ", created=" + created +
+//                ", updated=" + updated +
+                '}';
+    }
 }
