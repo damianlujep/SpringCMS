@@ -70,7 +70,7 @@ public class Article {
 
     public Article setCategories(List<Category> category) {
         this.categories = category;
-        return  this;
+        return this;
     }
 
     public String getContent() {

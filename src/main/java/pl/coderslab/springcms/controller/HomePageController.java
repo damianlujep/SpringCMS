@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 public class HomePageController {
 
-    final ArticleDao articleDao;
+    private final ArticleDao articleDao;
 
     public HomePageController(ArticleDao articleDao) {
         this.articleDao = articleDao;

@@ -13,7 +13,10 @@
     <label for="name">Title:</label>
     <form:input path="title" value="${articleToEdit.title}"/><br/>
     <label for="content">Description:</label>
-    <form:input path="content" value="${articleToEdit.content}"/><br/>
+
+    <form:textarea path="content" rows="20" cols="100" value="${articleToEdit.content}"/><br/>
+
+    <c:out value="${articleToEdit.content}"/>
     <input type="submit" value="Save Changes">
 </form:form>
 

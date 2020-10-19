@@ -40,8 +40,8 @@
             <td style="text-align: center">${stat.count}</td>
             <td style="text-align: center">${author.firstName}</td>
             <td style="text-align: center">${author.lastName}</td>
-            <td style="text-align: center"><a href="/author/edit/${category.id}" class="button"> Edit </a></td>
-            <td style="text-align: center"><a href="/author/delete/${category.id}" class="button">Delete</a></td>
+            <td style="text-align: center"><a href="/author/edit/${author.id}" class="button"> Edit </a></td>
+            <td style="text-align: center"><a href="/author/delete/${author.id}" class="button">Delete</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -1,6 +1,7 @@
 package pl.coderslab.springcms.controller;
 
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import pl.coderslab.springcms.dao.AuthorDao;
 import pl.coderslab.springcms.dao.CategoryDao;
 import pl.coderslab.springcms.entity.Article;
 import pl.coderslab.springcms.entity.Author;
+import pl.coderslab.springcms.entity.Category;
 
 import javax.transaction.Transactional;
 import java.time.format.DateTimeFormatter;
@@ -17,10 +19,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
-    final ArticleDao articleDao;
-    final AuthorDao authorDao;
-    final CategoryDao categoryDao;
+    private final ArticleDao articleDao;
+    private final AuthorDao authorDao;
+    private final CategoryDao categoryDao;
 
+    @Autowired
     public ArticleController(ArticleDao articleDao, AuthorDao authorDao, CategoryDao categoryDao) {
         this.articleDao = articleDao;
         this.authorDao = authorDao;
@@ -80,13 +83,13 @@ public class ArticleController {
         return "redirect: showAll";
     }
 
-//    @ModelAttribute("authorsList")
-//    private List<Author> authors(){
-//        return authorDao.findAllAuthors();
-//    }
+    @ModelAttribute("authorsList")
+    public List<Author> authors(){
+        return authorDao.findAllAuthors();
+    }
 
-//    @ModelAttribute("categoriesList")
-//    private List<Category> categories(){
-//        return categoryDao.findAllCategories();
-//    }
+    @ModelAttribute("categoriesList")
+    public List<Category> categories(){
+        return this.categoryDao.findAllCategories();
+    }
 }

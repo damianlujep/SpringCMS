@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springcms.dao.ArticleDao;
 import pl.coderslab.springcms.dao.CategoryDao;
-import pl.coderslab.springcms.entity.Article;
 import pl.coderslab.springcms.entity.Category;
 
 import java.util.List;
@@ -14,8 +13,8 @@ import java.util.List;
 @RequestMapping("/category")
 public class CategoryController {
 
-    final CategoryDao categoryDao;
-    final ArticleDao articleDao;
+    private final CategoryDao categoryDao;
+    private final ArticleDao articleDao;
 
     public CategoryController(CategoryDao categoryDao, ArticleDao articleDao) {
         this.categoryDao = categoryDao;
