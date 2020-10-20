@@ -1,6 +1,8 @@
 package pl.coderslab.springcms.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -12,18 +14,19 @@ public class Category {
     @Column(length = 100)
     private String name;
     private String description;
-    @ManyToOne
-    private Article article;
+
+    @ManyToMany(mappedBy = "categories")
+    private List<Article> articles = new ArrayList<>();
 
     public Category() {
     }
 
-    public Article getArticle() {
-        return article;
+    public List<Article> getArticles() {
+        return articles;
     }
 
-    public Category setArticle(Article article) {
-        this.article = article;
+    public Category setArticles(List<Article> article) {
+        this.articles = article;
         return this;
     }
 

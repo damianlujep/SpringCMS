@@ -26,6 +26,13 @@
     </style>
 </head>
 <body>
+
+<div style="padding-top: 10px; padding-bottom: 20px">
+    <button>
+        <a href="/article/addForm">Add a new Article</a>
+    </button>
+</div>
+
 <table>
     <tr>
         <th>Lp.</th>

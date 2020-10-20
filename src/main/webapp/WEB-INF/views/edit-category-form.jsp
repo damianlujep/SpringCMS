@@ -13,7 +13,7 @@
     <label for="name">Name:</label>
     <form:input path="name" value="${categoryToEdit.name}"/><br/>
     <label for="description">Description:</label>
-    <form:input type="textarea" path="description" value="${categoryToEdit.description}"/><br/>
+    <form:input path="description" value="${categoryToEdit.description}"/><br/>
     <input type="submit" value="Save Changes">
 </form:form>
 

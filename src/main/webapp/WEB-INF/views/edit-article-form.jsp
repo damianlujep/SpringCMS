@@ -14,9 +14,7 @@
     <form:input path="title" value="${articleToEdit.title}"/><br/>
     <label for="content">Description:</label>
 
-    <form:textarea path="content" rows="20" cols="100" value="${articleToEdit.content}"/><br/>
-
-    <c:out value="${articleToEdit.content}"/>
+    <form:input path="content" rows="20" cols="100" value="${articleToEdit.content}"/><br/>
     <input type="submit" value="Save Changes">
 </form:form>
 

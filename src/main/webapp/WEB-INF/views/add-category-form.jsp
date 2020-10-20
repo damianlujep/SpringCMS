@@ -10,7 +10,7 @@
 
 <form:form method="post" modelAttribute="category">
     <label for="name">Category name: </label>
-    <form:input path="firstName"/><br/>
+    <form:input path="name"/><br/>
     <label for="description">Description: </label>
     <form:input path="description" /><br/>
     <input type="submit" value="Save" />

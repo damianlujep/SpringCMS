@@ -17,7 +17,9 @@ public class Article {
     @JoinColumn(name = "author_id", unique = false )
     private Author author;
 
-    @OneToMany(mappedBy = "article")
+    @ManyToMany
+    @JoinTable(joinColumns = @JoinColumn(name = "article_id"),
+    inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories = new ArrayList<>();
     private String content;
 
