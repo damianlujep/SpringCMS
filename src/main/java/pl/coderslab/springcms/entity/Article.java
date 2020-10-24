@@ -1,6 +1,7 @@
 package pl.coderslab.springcms.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 200)
+    @NotBlank @Size(max = 200)
     private String title;
     @OneToOne
     @JoinColumn(name = "author_id", unique = false )
@@ -20,7 +22,9 @@ public class Article {
     @ManyToMany
     @JoinTable(joinColumns = @JoinColumn(name = "article_id"),
     inverseJoinColumns = @JoinColumn(name = "category_id"))
+    @NotEmpty
     private List<Category> categories = new ArrayList<>();
+    @NotBlank @Size(min = 50)
     private String content;
 
     @Column(name = "created_on")

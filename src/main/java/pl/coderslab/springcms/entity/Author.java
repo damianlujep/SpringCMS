@@ -1,6 +1,8 @@
 package pl.coderslab.springcms.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "author")
@@ -8,7 +10,9 @@ public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
 
     public Author() {

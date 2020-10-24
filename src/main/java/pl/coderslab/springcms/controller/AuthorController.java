@@ -2,10 +2,12 @@ package pl.coderslab.springcms.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springcms.dao.AuthorDao;
 import pl.coderslab.springcms.entity.Author;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -32,9 +34,13 @@ public class AuthorController {
     }
 
     @PostMapping("/addForm")
-    public String saveAuthorFromForm(@ModelAttribute Author author){
-        authorDao.saveAuthor(author);
+    public String saveAuthorFromForm(@ModelAttribute("author") @Valid Author author, BindingResult result, Model m){
+        if (result.hasErrors()){
+            m.addAttribute("author", author);
+            return "add-author-form";
+        }
 
+        authorDao.saveAuthor(author);
         return "redirect: showAll";
     }
 

@@ -1,6 +1,10 @@
 package pl.coderslab.springcms.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +16,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 100)
+    @NotBlank @Size(min = 5)
     private String name;
     private String description;
 

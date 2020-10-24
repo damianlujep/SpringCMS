@@ -13,12 +13,14 @@
     <div>
         <label for="title">Title: </label>
         <form:input path="title"/><br/>
+        <form:errors path="title" cssStyle="color: red"/>
     </div>
 
     <div>
         <label for="author">Author: </label>
         <form:select path="author" items="${authorsList}" var="a" id="author" itemValue="id"/>
-<%--        <form:select path="author" >--%>
+        <form:errors path="author" cssStyle="color: red"/>
+    <%--        <form:select path="author" >--%>
 <%--            <form:option value="-" label="-- Please Select --"/>--%>
 <%--            <form:options items="${authorsList}"/>--%>
 <%--        </form:select>--%>
@@ -30,15 +32,20 @@
             <div>
                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                 <form:checkbox path="categories" label="${category.name}" value="${category.id}"/>
+
             </div>
         </c:forEach>
 
+        <div>
+            <form:errors path="categories" cssStyle="color: red"/>
+        </div>
 
     </div>
     <div>
         <label for="content">Content: </label>
         <div>
             <form:textarea path="content" rows="10" cols="100"/>
+            <form:errors path="content" cssStyle="color: red"/>
 
         </div>
     </div>

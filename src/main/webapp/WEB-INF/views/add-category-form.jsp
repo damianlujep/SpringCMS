@@ -9,11 +9,20 @@
 <body>
 
 <form:form method="post" modelAttribute="category">
-    <label for="name">Category name: </label>
-    <form:input path="name"/><br/>
-    <label for="description">Description: </label>
-    <form:input path="description" /><br/>
+    <div>
+        <label for="name">Category name: </label>
+        <form:input path="name"/>
+        <form:errors path="name" cssStyle="color: red"/>
+    </div>
+
+    <div>
+        <label for="description">Description: </label>
+        <form:input path="description" />
+        <form:errors path="description" cssStyle="color: red"/>
+    </div>
+
     <input type="submit" value="Save" />
+
 </form:form>
 
 </body>

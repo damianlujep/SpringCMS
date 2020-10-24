@@ -4,6 +4,7 @@ import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springcms.dao.ArticleDao;
 import pl.coderslab.springcms.dao.AuthorDao;
@@ -13,6 +14,7 @@ import pl.coderslab.springcms.entity.Author;
 import pl.coderslab.springcms.entity.Category;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -55,7 +57,12 @@ public class ArticleController {
     }
 
     @PostMapping("/addForm")
-    public String processForm(@ModelAttribute Article article){
+    public String processForm(@ModelAttribute("article") @Valid Article article, BindingResult result, Model m){
+        if (result.hasErrors()){
+            m.addAttribute("article", article);
+            return "add-article-form";
+        }
+
         this.articleDao.saveArticle(article);
         return "redirect: showAll";
     }
